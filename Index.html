@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Alsherette M. Ramos - BSCS Student</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #6c63ff;
+            --secondary-color: #f8f9fa;
+            --text-color: #333;
+            --light-text: #6c757d;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: #f9fafb;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 100px 0 120px;
+            background: linear-gradient(135deg, #6c63ff 0%, #5a52e2 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>') center/70px;
+            opacity: 0.6;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+     
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .job-title {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            opacity: 0.8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: white;
+            border-radius: 50px;
+            padding: 15px 25px;
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a i {
+            font-size: 0.9rem;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 60px 0;
+        }
+        
+        section {
+            margin-bottom: 80px;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .info-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .info-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-list i {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            width: 25px;
+            text-align: center;
+        }
+        
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .skill-category h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .skill-list i {
+            color: var(--primary-color);
+        }
+        
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-image {
+            height: 200px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .tech-tag {
+            background-color: #eef2ff;
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .project-links a {
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: #e9ecef;
+            color: var(--text-color);
+        }
+        
+        .btn-primary:hover, .btn-secondary:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        /* Resume */
+        .timeline-container {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            height: calc(100% - 8px);
+            width: 2px;
+            background-color: #e9ecef;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--primary-color);
+        }
+        
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-period {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-description {
+            margin-bottom: 10px;
+        }
+        
+        .certificates-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .certificate-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            gap: 15px;
+        }
+        
+        .certificate-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .certificate-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .certificate-issuer {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+        
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .contact-info i {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            width: 25px;
+            text-align: center;
+            margin-top: 5px;
+        }
+        
+        .contact-info h4 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .contact-info p, .contact-info a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact-info a:hover {
+            color: var(--primary-color);
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+        
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+        }
+        
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-form button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .contact-form button:hover {
+            background-color: #574fe6;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .footer-text {
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .footer-links i {
+            margin-right: 5px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .navbar {
+                padding: 10px 20px;
+                margin-top: -30px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            header {
+                padding: 80px 0 100px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            
+            .navbar {
+                border-radius: 15px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+        }
+        
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            transition: var(--transition);
+        }
+        
+        .dark-mode-toggle:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        section {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .profile-img img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-img">
+                <img src="ProfilePic.png" alt="My Profile Photo" />
+                </div>
+                <h1>John Alsherette M. Ramos</h1>
+                <p class="job-title">Computer Science Student</p>
+                <p class="tagline">"Building innovative solutions one line of code at a time"</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <div class="container">
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
+                <li><a href="#projects"><i class="fas fa-laptop-code"></i> Projects</a></li>
+                <li><a href="#resume"><i class="fas fa-file-alt"></i> Resume</a></li>
+                <li><a href="#contact"><i class="fas fa-paper-plane"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <main class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Hello! I'm <span class="highlight">John Alsherette M. Ramos</span>, a passionate fourth-year Computer Science student at Gordon College, Olongapo. I specialize in designing and developing modern web applications with a strong focus on user experience and clean, maintainable code.</p>
+                    <p>My journey in tech started with building basic HTML websites, and it has since evolved into developing full-stack web applications. I thrive on solving complex problems and love creating software that makes a real impact in users' lives.</p>
+                    <p>Beyond the screen, I enjoy diving into new technologies, contributing to open-source projects, and mentoring junior developers as part of our university's coding club. I’m always eager to grow, collaborate, and take on exciting challenges in the tech world.</p>
+                </div>
+                <div>
+                    <ul class="info-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Olongapo, Philippines</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>B.S. Computer Science, Gordon College</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-briefcase"></i>
+                            <span>Aspiring Software Developer</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-code-branch"></i>
+                            <span>Open to Internship & Junior Dev Opportunities</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li><i class="fab fa-python"></i> Python</li>
+                        <li><i class="fab fa-js"></i> JavaScript</li>
+                        <li><i class="fab fa-java"></i> Java</li>
+                        <li><i class="fas fa-code"></i> HTML/CSS</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-layer-group"></i> Frameworks & Libraries</h3>
+                    <ul class="skill-list">
+                        <li><i class="fab fa-react"></i> React</li>
+                        <li><i class="fab fa-node-js"></i> Node.js</li>
+                        <li><i class="fab fa-bootstrap"></i> Bootstrap</li>
+                        <li><i class="fas fa-database"></i> Express.js</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Databases</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-server"></i> MySQL</li>
+                        <li><i class="fas fa-leaf"></i> MongoDB</li>
+                        <li><i class="fas fa-fire"></i> Firebase</li>
+                        <li><i class="fas fa-table"></i> SQLite</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
+                    <ul class="skill-list">
+                        <li><i class="fab fa-git-alt"></i> Git & GitHub</li>
+                        <li><i class="fas fa-terminal"></i> Command Line</li>
+                        <li><i class="fas fa-code-branch"></i> VS Code</li>
+                        <li><i class="fas fa-sitemap"></i> Postman</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2 class="section-title">Recent Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                    <img src="MentalWellConnect.png" alt="Mental Well Connect Project" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Mental Well Connect</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                        </div>
+                        <p>A digital platform designed to provide accessible mental health support, resources, and awareness to individuals in need. It connects users with licensed professionals, offers self-help tools, and fosters a supportive community. The platform aims to reduce the stigma around mental health and make emotional well-being a priority through education, early intervention, and easy access to care.</p>
+                        <p>Role: Team Menber & Front end Developer</p>
+                        <div class="project-links">
+                            <a href="https://www.mentalwellconnect.online/sign-in?redirect_url=https%3A%2F%2Fwww.mentalwellconnect.online%2F" class="btn-primary"><i class="fas fa-link"></i> Demo</a>
+                            <a href="#" class="btn-secondary"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Admin & Human Resources Information System</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                        <p>A centralized digital platform designed to streamline and automate administrative and HR-related processes. It manages employee records, attendance, leave requests, payroll, performance evaluations, and other core HR functions. The system enhances efficiency, ensures data accuracy, and provides management with valuable insights for better decision-making, all while improving employee experience and organizational transparency.</p>
+                        <p>Role: Team Menber & full-stack Developer</p>
+                        <div class="project-links">
+                            <a href="#" class="btn-primary"><i class="fas fa-link"></i> Demo</a>
+                            <a href="#" class="btn-secondary"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">OCGEMPC</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">Angular</span>
+                        </div>
+                        <p>Ongoing.</p>
+                        <p>Role: Front End Developer</p>
+                        <div class="project-links">
+                            <a href="#" class="btn-primary"><i class="fas fa-link"></i> Demo</a>
+                            <a href="#" class="btn-secondary"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Resume Section -->
+        <section id="resume">
+            <h2 class="section-title">Resume</h2>
+            
+            <h3 style="margin-bottom: 30px;">Educational Background</h3>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <h4 class="timeline-title">Bachelor of Science in Computer Science</h4>
+                    <p class="timeline-period">Gordon College | 2021 - Present</p>
+                    <p class="timeline-description">Specialization in Software Engineering with a minor in AI & Machine Learning.</p>
+                    <p></p>
+                </div>
+                <div class="timeline-item">
+                    <h4 class="timeline-title">General Academic Strand</h4>
+                    <p class="timeline-period">Columban College | 2021 - 2025</p>
+                    <p class="timeline-description">Focused on Information and Communication Technology (ICT) track with foundational studies in programming and digital technologies.</p>
+                    <p></p>
+                </div>
+            </div>
+
+             <h3 style="margin-bottom: 30px;">Internship Experience</h3>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <h4 class="timeline-title">Admin Aid</h4>
+                    <p class="timeline-period">Local Civil Registry (Internship) | June 2022 - Aug 2022</p>
+                    <p class="timeline-description">Processed birth, marriage, and death certificates with accuracy and legal compliance. Provided customer support, assisted with document requests, and coordinated with local agencies to update civil records. Maintained organized data through precise entry and record-keeping.</p>
+                    <p></p>
+                </div>
+                <div class="timeline-item">
+                    <h4 class="timeline-title">Event Organizer Assistant</h4>
+                    <p class="timeline-period">Subic Pearl Hotel | December 2024 - January 20205</p>
+                    <p class="timeline-description">Assisted in coordinating events such as debuts and weddings. Managed inventory and event materials to ensure smooth operations. Delivered prompt, friendly service and supported guests with inquiries and needs.</p>
+                    <p></p>
+                </div>
+            </div>
+            
+            
+            
+            <h3 style="margin-bottom: 30px;">Certifications</h3>
+            <div class="certificates-list">
+                <div class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div>
+                        <h4 class="certificate-name">Samsung Open Source Conference Philippines</h4>
+                        <p class="certificate-issuer">Novotel Manila, Araneta City</p>
+                    </div>
+                </div>
+                
+                <div class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div>
+                        <h4 class="certificate-name">Philippine Startup Challenge 9</h4>
+                        <p class="certificate-issuer">DICT Region 3, Central Luzon State University 28</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="btn-primary" style="padding: 12px 25px;"><i class="fas fa-download"></i> Download Full Resume</a>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div>
+                    <p style="margin-bottom: 30px;">I'm currently looking for new opportunities in software development. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+                    
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4
+                                <p><a href="alsherette14@gmail.com">alsherette14@gmail.com</a></p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+63 964 769 1126</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Barretto, Ologapo City, Philippines</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fab fa-linkedin-in"></i>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <p><a href="#">www.linkedin.com/in/johnalsherettemramos</a></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">&copy; 2025 John Alsherette M. Ramos. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#"><i class="fas fa-envelope"></i> Email</a>
+                <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle">
+        <i class="fas fa-moon"></i>
+    </div>
+    
+    <script>
+        // Dark mode toggle functionality
+        const darkModeToggle = document.querySelector('.dark-mode-toggle');
+        const body = document.body;
+        
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            // Toggle moon/sun icon
+            const icon = darkModeToggle.querySelector('i');
+            if (icon.classList.contains('fa-moon')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
